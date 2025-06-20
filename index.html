@@ -1,13 +1,143 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Claim Delivery</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claim Order - GAG.BEST</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f6fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .claim {
+      display: flex;
+      flex-direction: row;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      max-width: 1000px;
+      width: 100%;
+      margin: 20px;
+    }
+    .steps {
+      width: 300px;
+      background: #f8fafd;
+      padding: 30px;
+    }
+    .steps img {
+      height: 40px;
+      margin-bottom: 30px;
+    }
+    .step {
+      margin-bottom: 30px;
+    }
+    .step h4 {
+      margin: 0 0 5px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .step span {
+      font-size: 14px;
+      color: #a0a6b1;
+    }
+    .step.active h4 {
+      color: #1a1a1a;
+    }
+    .step.active span {
+      color: #56a02c;
+    }
+    .form {
+      flex: 1;
+      padding: 40px;
+    }
+    .form h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .form p {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+    .form input {
+      padding: 12px;
+      font-size: 16px;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    .form button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #1f2937;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .discord {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    .discord img {
+      width: 22px;
+      height: 22px;
+    }
+    @media (max-width: 768px) {
+      .claim {
+        flex-direction: column;
+      }
+      .steps, .form {
+        width: 100%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="claim">
+    <div class="steps">
+      <img src="/images/logo.png" alt="GAG.BEST Logo">
+      <div class="step active">
+        <h4>Step 1<br>Locate your Account</h4>
+        <span>IN PROGRESS</span>
+      </div>
+      <div class="step">
+        <h4>Step 2<br>Confirm your Account</h4>
+        <span>PROCESSING</span>
+      </div>
+      <div class="step">
+        <h4>Step 3<br>Change Privacy Setting</h4>
+        <span>PROCESSING</span>
+      </div>
+      <div class="step">
+        <h4>Step 4<br>Join Game & Get Items</h4>
+        <span>PROCESSING</span>
+      </div>
+      <div class="discord">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
+        <span>Need help? <a href="#">View our Tutorial</a></span>
+      </div>
+    </div>
+    <div class="form">
+      <h2>Hello!</h2>
+      <p>Let's locate your account to initiate the claiming process.</p>
+      <input type="text" placeholder="Your Roblox Username">
+      <button>Continue</button>
+    </div>
+  </div>
+</body>
 </html>
