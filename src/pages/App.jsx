@@ -21,15 +21,15 @@ export default function App() {
       <div className="main">
         <h1>Locate Your Order</h1>
         <input
-          placeholder="Your Email123"
+          placeholder="Your Email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           placeholder="Short Order Number"
-          value={shortId}
-          onChange={(e) => setShortId(e.target.value)}
+          value={order_number}
+          onChange={(e) => setorder_number(e.target.value)}
         />
         <button
           onClick={async () => {
