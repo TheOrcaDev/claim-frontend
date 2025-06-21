@@ -28,7 +28,7 @@ export default function App() {
         />
         <input
           placeholder="Short Order Number"
-          value={order_number}
+          value={shortId}
           onChange={(e) => setShortId(e.target.value)}
         />
         <button
@@ -62,21 +62,29 @@ export default function App() {
     }
   }, [orderId]);
 
-  const handleUsername = () => {
+  const handleUsername = async () => {
     setError("");
     setUserData(null);
+
     if (!username) {
       setError("Please enter your Roblox username.");
       return;
     }
 
-    axios
-      .get(`https://gagbest.onrender.com/api/roblox-user?username=${username}`)
-      .then((res) => {
-        setUserData(res.data);
-        setStep(2);
-      })
-      .catch(() => setError("❌ Roblox user not found. Try a different one."));
+    try {
+      const res = await axios.get(`https://gagbest.onrender.com/api/roblox-user?username=${username}`);
+      const user = res.data;
+
+      const thumbRes = await axios.get(
+        `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${user.id}&size=352x352&format=Png`
+      );
+
+      const avatarUrl = thumbRes.data.data?.[0]?.imageUrl || null;
+      setUserData({ ...user, avatarUrl });
+      setStep(2);
+    } catch {
+      setError("❌ Roblox user not found. Try a different one.");
+    }
   };
 
   if (!orderStatus) return <div className="main">🔄 Loading order...</div>;
@@ -93,7 +101,7 @@ export default function App() {
       <div className="sidebar">
         <img
           className="logo"
-          src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773276902457475/GAGBESTLOGO.png?ex=6857496f&is=6855f7ef&hm=ee6c3a5d59b430108c3f8bc4b32c9f88eeaee7b6fa89738371a973b44c090bb3&"
+          src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773276902457475/GAGBESTLOGO.png"
           alt="GAG.BEST Logo"
         />
         <div className="stepper">
@@ -102,21 +110,8 @@ export default function App() {
               <div className="icon">{stepIcons[i]}</div>
               <div className="content">
                 <p>Step {s}</p>
-                <h1>
-                  {[
-                    "Locate your Account",
-                    "Confirm your Account",
-                    "Change Privacy Setting",
-                    "Join Game & Get Items",
-                  ][i]}
-                </h1>
-                <span>
-                  {step === s
-                    ? "IN PROGRESS"
-                    : step > s
-                    ? "COMPLETE"
-                    : "PROCESSING"}
-                </span>
+                <h1>{["Locate your Account", "Confirm your Account", "Change Privacy Setting", "Join Game & Get Items"][i]}</h1>
+                <span>{step === s ? "IN PROGRESS" : step > s ? "COMPLETE" : "PROCESSING"}</span>
               </div>
             </div>
           ))}
@@ -130,7 +125,6 @@ export default function App() {
       <div className="main">
         <h1>Claim Your Order</h1>
         <p>Order Number: <strong>{orderStatus?.order_number}</strong></p>
-        
 
         {step === 1 && (
           <>
@@ -151,8 +145,9 @@ export default function App() {
             <p>Can you confirm whether this is your account?</p>
             <div className="user-info user-preview">
               <img
-                src={`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userData.id}&size=352x352&format=Png`}
+                src={userData.avatarUrl}
                 alt="Avatar"
+                style={{ width: 100, height: 100, borderRadius: "8px" }}
               />
               <div>
                 <strong>{userData.displayName || userData.name}</strong><br />
