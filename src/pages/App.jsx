@@ -111,6 +111,22 @@ export default function App() {
               <span>{step === 2 ? "IN PROGRESS" : "PROCESSING"}</span>
             </div>
           </div>
+          <div className={`step ${step < 3 ? "processing" : ""}`}>
+            <div className="icon">🔒</div>
+            <div className="content">
+              <p>Step 3</p>
+              <h1>Change Privacy Setting</h1>
+              <span>{step === 3 ? "IN PROGRESS" : "PROCESSING"}</span>
+            </div>
+          </div>
+          <div className={`step ${step < 4 ? "processing" : ""}`}>
+            <div className="icon">🎁</div>
+            <div className="content">
+              <p>Step 4</p>
+              <h1>Join Game & Get Items</h1>
+              <span>{step === 4 ? "IN PROGRESS" : "PROCESSING"}</span>
+            </div>
+          </div>
         </div>
         <div className="helper">
           <img
@@ -147,8 +163,59 @@ export default function App() {
               <br />
               ID: {userData.id}
             </div>
-            <button onClick={() => alert("Next step placeholder")}>Yes, that's me</button>
+            <button onClick={() => setStep(3)}>Yes, that's me</button>
             <button onClick={() => { setUserData(null); setStep(1); }}>Cancel</button>
+          </>
+        )}
+
+        {step === 3 && (
+          <>
+            <h3>Change Your Privacy Setting</h3>
+            <p>
+              We need to join you in-game. Please make sure your Roblox privacy
+              settings allow users to join your games.
+            </p>
+            <img
+              src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773731284267119/privacy_setting.png"
+              alt="How to change privacy setting"
+              style={{
+                maxWidth: "100%",
+                borderRadius: "12px",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
+              }}
+            />
+            <div style={{ marginTop: "16px" }}>
+              <button
+                onClick={() =>
+                  window.open(
+                    "https://www.roblox.com/my/account#!/privacy/VisibilityAndPrivateServers/Visibility",
+                    "_blank"
+                  )
+                }
+              >
+                Open Privacy Settings
+              </button>
+              <button
+                style={{ marginLeft: "12px" }}
+                onClick={() => setStep(4)}
+              >
+                Next Step
+              </button>
+            </div>
+          </>
+        )}
+
+        {step === 4 && (
+          <>
+            <h3>Join Game & Get Items</h3>
+            <p>You're ready! Please join the delivery game now and your items will be delivered shortly.</p>
+            <a
+              href="https://www.roblox.com/games/15922923665/Claim-Delivery"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Join Game</button>
+            </a>
           </>
         )}
       </div>
