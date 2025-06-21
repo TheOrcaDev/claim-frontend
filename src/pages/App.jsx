@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
-import "../Claim.css"; // ✅ Import your CSS file here
+import "../Claim.css";
 
 export default function App() {
   const [params] = useSearchParams();
@@ -11,8 +11,47 @@ export default function App() {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState("");
 
+  const [email, setEmail] = useState("");
+  const [shortId, setShortId] = useState("");
+
   const orderId = params.get("id");
 
+  // If no ID, show manual lookup form
+  if (!orderId) {
+    return (
+      <div className="main">
+        <h1>Locate Your Order</h1>
+        <input
+          placeholder="Your Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          placeholder="Short Order Number"
+          value={shortId}
+          onChange={(e) => setShortId(e.target.value)}
+        />
+        <button
+          onClick={async () => {
+            if (!email || !shortId) return setError("Enter both fields.");
+            try {
+              const res = await axios.get(`https://gagbest.onrender.com/api/lookup-order?email=${email}&short=${shortId}`);
+              const fullOrderId = res.data.id;
+              window.location.href = `/?id=${fullOrderId}`;
+            } catch {
+              setError("Order not found.");
+            }
+          }}
+        >
+          Find My Order
+        </button>
+        {error && <p className="error-message">{error}</p>}
+      </div>
+    );
+  }
+
+  // Normal flow with order ID
   useEffect(() => {
     if (orderId) {
       axios
