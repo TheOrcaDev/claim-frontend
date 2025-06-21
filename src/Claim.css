@@ -177,12 +177,12 @@ body {
 
 .button-outline2 {
   background: white;
-  color: #DB5940;
+  color: #DB5940 !important;
   border: 2px solid #4d7c0f;
 }
 
-.button-outline:hover {
-  background: #DB5941;
+.button-outline2:hover {
+  background: #DB5940 !important;
 }
 
 
