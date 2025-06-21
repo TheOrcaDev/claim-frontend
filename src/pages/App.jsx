@@ -12,7 +12,7 @@ export default function App() {
   const [error, setError] = useState("");
 
   const [email, setEmail] = useState("");
-  const [shortId, setShortId] = useState("");
+  const [order_number, setorder_number] = useState("");
 
   const orderId = params.get("id");
 
@@ -33,9 +33,9 @@ export default function App() {
         />
         <button
           onClick={async () => {
-            if (!email || !shortId) return setError("Enter both fields.");
+            if (!email || !order_number) return setError("Enter both fields.");
             try {
-              const res = await axios.get(`https://gagbest.onrender.com/api/lookup-order?email=${email}&short=${shortId}`);
+              const res = await axios.get(`https://gagbest.onrender.com/api/lookup-order?email=${email}&short=${order_number}`);
               const fullOrderId = res.data.id;
               window.location.href = `/?id=${fullOrderId}`;
             } catch {
