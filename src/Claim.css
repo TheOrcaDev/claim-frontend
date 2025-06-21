@@ -1,18 +1,19 @@
 /* Claim.css */
 body {
   font-family: 'Roboto', sans-serif;
-  background: #f6f8fb;
+  background: #f5f7fa;
   margin: 0;
   padding: 0;
+  color: #1f2937;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 960px;
+  max-width: 1100px;
   margin: 40px auto;
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
@@ -25,112 +26,117 @@ body {
 
 .sidebar {
   background: #f9fafc;
-  padding: 32px;
+  padding: 40px 32px;
   flex: 1;
 }
 
 .logo {
-  height: 36px;
-  margin-bottom: 32px;
+  height: 40px;
+  margin-bottom: 36px;
 }
 
 .stepper .step {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .step .icon {
   margin-right: 16px;
-  font-size: 20px;
-  color: #10b981;
+  font-size: 22px;
+  color: #22c55e;
   line-height: 1;
 }
 
 .step .content p {
-  font-size: 13px;
+  font-size: 14px;
   color: #6b7280;
   margin: 0;
 }
 
 .step .content h1 {
-  font-size: 15px;
+  font-size: 16px;
   color: #111827;
-  font-weight: 500;
+  font-weight: 600;
   margin: 4px 0 2px;
 }
 
 .step .content span {
-  font-size: 12px;
-  color: #10b981;
+  font-size: 13px;
+  color: #22c55e;
 }
 
 .step.processing .icon,
 .step.processing .content span,
 .step.processing .content h1 {
-  color: #9ca3af;
+  color: #cbd5e1;
 }
 
 .main {
-  padding: 40px 32px;
+  padding: 48px 40px;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .main h1 {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .main p {
-  font-size: 14px;
+  font-size: 15px;
   color: #6b7280;
   margin-bottom: 20px;
 }
 
 .main input {
   width: 100%;
-  max-width: 400px;
-  padding: 12px 14px;
+  max-width: 440px;
+  padding: 14px 16px;
   font-size: 16px;
   border: 1px solid #d1d5db;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 12px;
   box-sizing: border-box;
 }
 
 .main button {
-  background: #1f2937;
+  background: #4d7c0f;
   color: white;
   border: none;
   width: 100%;
-  max-width: 400px;
-  padding: 12px 14px;
+  max-width: 440px;
+  padding: 14px 16px;
   font-weight: 600;
   font-size: 16px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   margin-top: 12px;
+  transition: background 0.2s ease-in-out;
 }
 
 .main button:hover {
-  background: #374151;
+  background: #3f6212;
 }
 
 .helper {
-  margin-top: 32px;
+  margin-top: 48px;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 15px;
+  color: #111827;
 }
 
 .helper img {
-  margin-right: 10px;
-  width: 20px;
+  margin-right: 12px;
+  width: 24px;
 }
 
 .error-message {
-  color: red;
+  color: #dc2626;
   font-size: 14px;
   margin-top: 6px;
   margin-bottom: 6px;
@@ -138,9 +144,10 @@ body {
 
 .user-info {
   margin-top: 20px;
-  padding: 12px;
+  padding: 14px;
   background-color: #f0fdf4;
   border: 1px solid #bbf7d0;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  max-width: 440px;
 }
