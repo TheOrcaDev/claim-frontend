@@ -175,6 +175,17 @@ body {
   background: #f3f4f6;
 }
 
+.button-outline2 {
+  background: white;
+  color: #DB5940;
+  border: 2px solid #4d7c0f;
+}
+
+.button-outline:hover {
+  background: #DB5941;
+}
+
+
 .helper {
   margin-top: 48px;
   display: flex;
