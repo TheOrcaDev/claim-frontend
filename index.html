@@ -1,194 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claim Your Order</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-    }
-    body {
-      background: #f6f8fb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      padding: 16px;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      width: 100%;
-      max-width: 960px;
-    }
-    @media (min-width: 768px) {
-      .container {
-        flex-direction: row;
-      }
-    }
-    .sidebar {
-      background: #f9fafc;
-      padding: 32px;
-      flex: 1;
-    }
-    .sidebar img {
-      height: 36px;
-      margin-bottom: 32px;
-    }
-    .stepper .step {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 24px;
-    }
-    .step .icon {
-      margin-right: 16px;
-      flex-shrink: 0;
-    }
-    .step p {
-      font-size: 13px;
-      color: #6b7280;
-    }
-    .step h1 {
-      font-size: 15px;
-      color: #111827;
-      font-weight: 500;
-    }
-    .step span {
-      font-size: 12px;
-      color: #10b981;
-    }
-    .step.processing h1,
-    .step.processing span {
-      color: #9ca3af;
-    }
-    .step.processing .icon svg {
-      opacity: 0.5;
-    }
-    .content {
-      flex: 1;
-    }
-    .main {
-      padding: 40px 32px;
-      flex: 1;
-    }
-    .main h1 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .main p {
-      font-size: 14px;
-      color: #6b7280;
-      margin-bottom: 20px;
-    }
-    .main input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-    .main button {
-      background: #1f2937;
-      color: white;
-      border: none;
-      width: 100%;
-      padding: 10px;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .main button:hover {
-      background: #374151;
-    }
-    .helper {
-      margin-top: 32px;
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-    }
-    .helper img {
-      margin-right: 10px;
-    }
-  </style>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content=
+  "MM2Shop - Claim your MM2 items here. Our delivery system ensures fast and secure transactions.">
+  <!--Website Social Media Meta-->
+  <meta property="og:title" content=
+  "MM2 Shop - MM2 deals for sale - buy mm2 godlys - mm2 store">
+  <meta property="og:description" content=
+  "Our MM2 store optimizes the buying and delivery process so you never have to wait for your items ever again. Godlys, Collectibles, Ancients, and more. Shop now!">
+  <meta property="og:image" content=
+  "https://mm2.shop/cdn/shop/files/thanksgiving_3600x2023_crop_center.png?v=1732353085">
+  <meta property="og:url" content="https://mm2.shop/">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/claim.css"><!-- Website Icon -->
+  <link rel="shortcut icon" href="images/icon.png"><!-- Title -->
+  <title>GAG.Market Claim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com"
+  crossorigin="">
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <img src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773276902457475/GAGBESTLOGO.png?ex=6857496f&is=6855f7ef&hm=ee6c3a5d59b430108c3f8bc4b32c9f88eeaee7b6fa89738371a973b44c090bb3&" alt="GAG.BEST Logo" />
-      <div class="stepper">
-        <div class="step">
-          <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#10b981">
-              <path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12Z"></path>
-              <path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"></path>
-            </svg>
+  <div class="claim">
+    <div class="box">
+      <div class="progress">
+        <a class="title" href="#"><img src="images/title.png"
+        draggable="false" alt="GAG Market Title Branding"></a>
+        <div class="stepper">
+          <div id="step1" class="step process">
+            <!-- complete -->
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" id="Outline"
+              viewbox="0 0 24 24" width="22" height="22" fill=
+              "currentcolor">
+              <path d=
+              "M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"></path>
+              <path d=
+              "M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"></path>
+              </svg>
+            </div>
+            <div class="content">
+              <p>Step 1</p>
+              <h1>Locate your Account</h1><span id="step1Text"
+              class="in-progress">Processing</span> 
+              <!-- complete -->
+            </div>
           </div>
-          <div class="content">
-            <p>Step 1</p>
-            <h1>Locate your Account</h1>
-            <span>IN PROGRESS</span>
+          <div id="step2" class="step d-none">
+            <!-- process -->
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1"
+              data-name="Layer 1" viewbox="0 0 24 24" width="22"
+              height="22" fill="currentcolor">
+              <path d=
+              "M24,12c0-1.696-.86-3.191-2.168-4.073,.301-1.548-.148-3.213-1.347-4.413-1.199-1.199-2.864-1.648-4.413-1.347-.882-1.308-2.377-2.168-4.073-2.168s-3.191,.86-4.073,2.168c-1.548-.301-3.214,.148-4.413,1.347-1.199,1.199-1.648,2.864-1.347,4.413-1.308,.882-2.168,2.377-2.168,4.073s.86,3.191,2.168,4.073c-.301,1.548,.148,3.214,1.347,4.413,1.199,1.199,2.864,1.648,4.413,1.347,.882,1.308,2.377,2.168,4.073,2.168s3.191-.86,4.073-2.168c1.548,.301,3.214-.148,4.413-1.347,1.199-1.199,1.648-2.864,1.347-4.413,1.308-.882,2.168-2.377,2.168-4.073Zm-12.091,3.419c-.387,.387-.896,.58-1.407,.58s-1.025-.195-1.416-.585l-2.782-2.696,1.393-1.437,2.793,2.707,5.809-5.701,1.404,1.425-5.793,5.707Z"></path>
+              </svg>
+            </div>
+            <div class="content">
+              <p>Step 2</p>
+              <h1>Confirm your Account</h1><span id="step2Text"
+              class="in-progress">Processing</span> 
+              <!-- In Progress -->
+            </div>
+          </div>
+          <div id="step3" class="step d-none">
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1"
+              data-name="Layer 1" viewbox="0 0 16 16" width="22"
+              height="22" fill="currentcolor">
+              <path d=
+              "M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"></path>
+              </svg>
+            </div>
+            <div class="content">
+              <p>Step 3</p>
+              <h1>Change Privacy Setting</h1><span id="step3Text"
+              class="in-progress">Processing</span>
+            </div>
+          </div>
+          <div id="step4" class="step d-none">
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1"
+              data-name="Layer 1" viewbox="0 0 24 24" width="22"
+              height="22" fill="currentcolor">
+              <path d=
+              "M7.835,16.17c-.23-.23-.446-.482-.641-.748-.325-.446-.227-1.072,.22-1.397,.446-.325,1.071-.227,1.397,.219,.129,.178,.274,.349,.437,.511,.803,.803,1.87,1.245,3.005,1.245s2.203-.442,3.005-1.245l5.5-5.5c1.657-1.657,1.657-4.354,0-6.011s-4.354-1.657-6.011,0l-1.058,1.058c-.391,.391-1.023,.391-1.414,0s-.391-1.023,0-1.414l1.058-1.058c2.437-2.438,6.402-2.438,8.839,0,2.437,2.437,2.437,6.402,0,8.839l-5.5,5.5c-1.18,1.181-2.75,1.831-4.419,1.831s-3.239-.65-4.418-1.83Zm-1.582,7.83c1.67,0,3.239-.65,4.419-1.831l1.058-1.058c.391-.39,.391-1.023,0-1.414-.39-.391-1.023-.39-1.414,0l-1.059,1.058c-.803,.803-1.87,1.245-3.005,1.245s-2.202-.442-3.005-1.245-1.245-1.87-1.245-3.005,.442-2.203,1.245-3.005l5.5-5.5c.803-.803,1.87-1.245,3.005-1.245s2.203,.442,3.005,1.245c.16,.161,.306,.332,.436,.51,.324,.447,.949,.547,1.397,.221,.447-.325,.546-.95,.221-1.397-.19-.262-.405-.513-.639-.747-1.181-1.182-2.751-1.832-4.42-1.832s-3.239,.65-4.419,1.831L1.834,13.331C.653,14.511,.003,16.081,.003,17.75c0,1.669,.65,3.239,1.831,4.419,1.18,1.181,2.749,1.831,4.419,1.831Z"></path>
+              </svg>
+            </div>
+            <div class="content">
+              <p>Step 4</p>
+              <h1>Join the Game &<br>
+              We'll Deliver the Items</h1><span id="step4Text"
+              class="in-progress">Processing</span>
+            </div>
           </div>
         </div>
-        <div class="step processing">
-          <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#d1d5db">
-              <path d="M24,12c0-1.696-.86-3.191-2.168-4.073..."></path>
-            </svg>
-          </div>
-          <div class="content">
-            <p>Step 2</p>
-            <h1>Confirm your Account</h1>
-            <span>PROCESSING</span>
-          </div>
-        </div>
-        <div class="step processing">
-          <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="22" height="22" fill="#d1d5db">
-              <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0..."></path>
-            </svg>
-          </div>
-          <div class="content">
-            <p>Step 3</p>
-            <h1>Change Privacy Setting</h1>
-            <span>PROCESSING</span>
-          </div>
-        </div>
-        <div class="step processing">
-          <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#d1d5db">
-              <path d="M7.835,16.17c-.23-.23-.446-.482-.641-.748..."></path>
-            </svg>
-          </div>
-          <div class="content">
-            <p>Step 4</p>
-            <h1>Join Game & Get Items</h1>
-            <span>PROCESSING</span>
-          </div>
+        <div class="support context desktop">
+          <a class="discord" href="#"><svg xmlns=
+          "http://www.w3.org/2000/svg" width="22" height="22" fill=
+          "currentcolor" class="bi bi-discord" viewbox="0 0 16 16">
+          <path d=
+          "M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"></path>
+          </svg></a> <span>Do you need help? <a class=
+          "link-tutorial" href="#">View our Tutorial</a></span>
         </div>
       </div>
-      <div class="helper">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" width="20" />
-        <span>Need help? <a href="#" style="color: #10b981; text-decoration: underline;">View our Tutorial</a></span>
-      </div>
-    </div>
-    <div class="main">
-      <h1>Hello!</h1>
-      <p>Let's locate your account to initiate the claiming process.</p>
-      <input type="text" placeholder="Your Roblox Username" />
-      <span style="display:block;font-size:12px;color:#9ca3af;margin-bottom:16px;">Please enter your Roblox Username</span>
-      <button>Continue</button>
-    </div>
-  </div>
-</body>
-</html>
+      <div class="form">
+        <a id="back" class="back disable">
+        <div class="svg-container">
+          <svg xmlns="http://www.w3.org/2000/svg" id="Outline"
+          viewbox="0 0 24 24" width="22" height="22" fill=
+          "currentcolor">
+          <path d=
+          "M10.6,12.71a1,1,0,0,1,0-1.42l4.59-4.58a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0L9.19,9.88a3,3,0,0,0,0,4.24l4.59,4.59a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z"></path>
+          </svg>
+        </div><span>Back</span></a> <!-- Locate Account -->
+        <div id="locateAccount" class="dc-flex">
+          <h1 class="claim-dt">Hello!</h1>
+          <p class="claim-dp">Let's locate your account to initiate
+          the claiming process.</p><input class="claim-input" id=
+          "usernameInput" placeholder="Your Username" type="text">
+          <span class="claim-ds" id="usernameError">Please enter
+          your Roblox Username</span> <button class=
+          "claim-btn disabled" id="locateBtn" disabled
+          >Continue</button>
+        </div><!-- Confirm Account -->
+        <div id="confirmAccount" class="dc-flex d-none">
+          <h1 class="claim-dt">Hold On!</h1>
+          <p class="claim-dp">Can you confirm whether this is your
+          account?</p>
+          <div class="account">
+            <img src="images/user_pfp_light.png" draggable="false"
+            alt="User Account Image">
+            <div class="ua-context">
+              <h1 class="claim-dt">MM2Shop_Tutorial
+              (MM2Shop_Tutorial)</h1><span class=
+              "claim-ds">(4712534842)</span>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button class="claim-btn" id="yesConfirmBtn">Yes! This
+            is my account</button> <button class=
+            "claim-btn secondary" id="noConfirmBtn">No! This is not
+            mine</button>
+          </div>
+        </div><!-- Adding Bot -->
+        <div id="addBot" class="dc-flex d-none">
+          <h1 class="claim-dt">Change Your Privacy Setting</h1>
+          <p class="claim-dp">We need to join you to deliver your
+          order! Please update your privacy settings as shown below
+          before continuing.</p><img src=
+          "images/privacy_setting.png" draggable="false" alt=
+          "How to change your privacy setting" style=
+          "display: block; max-width: 100%; max-height: 30vh; width: auto; height: auto; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+          <div class="btn-group">
+            <button class="claim-btn" onclick=
+            "window.open('https://www.roblox.com/my/account#!/privacy/VisibilityAndPrivateServers/Visibility', '_blank');">
+            Open Privacy Settings</button> <button class=
+            "claim-btn secondary" id="settingsConfirmedBtn">Next
+            Step</button>
+          </div>
+        </div><!-- Claim Items -->
+        <div id="claimItems" class="dc-flex d-none">
+          <h1 class="claim-dt">Awesome!</h1>
+          <p class="claim-dp">Last step. Join the game and claim
+          your in-game items. Make sure that your server isn't
+          full!</p>
+          <div class="account">
+        
