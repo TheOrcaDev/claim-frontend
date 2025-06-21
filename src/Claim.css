@@ -152,6 +152,29 @@ body {
   background: #3f6212;
 }
 
+.button-row {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 440px;
+  margin-top: 16px;
+}
+
+.button-row button {
+  flex: 1;
+  margin-top: 0;
+}
+
+.button-outline {
+  background: white;
+  color: #4d7c0f;
+  border: 2px solid #4d7c0f;
+}
+
+.button-outline:hover {
+  background: #f3f4f6;
+}
+
 .helper {
   margin-top: 48px;
   display: flex;
@@ -180,6 +203,15 @@ body {
   border-radius: 10px;
   font-size: 15px;
   max-width: 440px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.user-info img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
 }
 
 /* Custom icons */
