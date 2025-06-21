@@ -8,8 +8,9 @@
         btn => btn.textContent.includes("Yes, that's me")
       );
 
-      if (confirmBtn) {
-        confirmBtn.onclick = () => {
+      if (confirmBtn && !confirmBtn.dataset._extended) {
+        confirmBtn.dataset._extended = "true"; // prevent double binding
+        confirmBtn.addEventListener("click", () => {
           const step3Container = document.createElement("div");
           step3Container.innerHTML = `
             <h3>Change Your Privacy Setting</h3>
@@ -26,9 +27,10 @@
               <button style="margin-left: 12px" onclick="alert('Step 4 coming soon')">Next Step</button>
             </div>
           `;
+
           root.innerHTML = "";
           root.appendChild(step3Container);
-        };
+        });
       }
     });
 
