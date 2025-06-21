@@ -16,7 +16,7 @@ export default function App() {
 
   const orderId = params.get("id");
 
-  // If no ID, show manual lookup form
+  // STEP 0: Manual lookup
   if (!orderId) {
     return (
       <div className="main">
@@ -46,12 +46,12 @@ export default function App() {
         >
           Find My Order
         </button>
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className="error-message" style={{ color: "red" }}>{error}</p>}
       </div>
     );
   }
 
-  // Normal flow with order ID
+  // STEP 1: Load Order by ID
   useEffect(() => {
     if (orderId) {
       axios
@@ -78,11 +78,9 @@ export default function App() {
         setUserData(res.data);
         setStep(2);
       })
-      .catch(() => setError("Roblox user not found."));
+      .catch(() => setError("❌ Roblox user not found. Try a different one."));
   };
 
-  if (error)
-    return <div className="main"><div className="error-message">❌ {error}</div></div>;
   if (!orderStatus)
     return <div className="main">🔄 Loading order...</div>;
 
@@ -152,6 +150,7 @@ export default function App() {
               onChange={(e) => setUsername(e.target.value)}
             />
             <button onClick={handleUsername}>Continue</button>
+            {error && <p className="error-message" style={{ color: "red", marginTop: 8 }}>{error}</p>}
           </>
         )}
 
