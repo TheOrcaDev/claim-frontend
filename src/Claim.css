@@ -90,10 +90,13 @@ body {
 
 .main input {
   width: 100%;
-  padding: 10px;
+  max-width: 400px;
+  padding: 12px 14px;
+  font-size: 16px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
 .main button {
@@ -101,8 +104,10 @@ body {
   color: white;
   border: none;
   width: 100%;
-  padding: 10px;
+  max-width: 400px;
+  padding: 12px 14px;
   font-weight: 600;
+  font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
   margin-top: 12px;
@@ -126,8 +131,9 @@ body {
 
 .error-message {
   color: red;
-  font-size: 13px;
-  margin-top: 8px;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 .user-info {
