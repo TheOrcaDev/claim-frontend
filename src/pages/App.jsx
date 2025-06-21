@@ -168,8 +168,8 @@ export default function App() {
 
         {step === 3 && (
           <>
-            <h3>Change Your Privacy Setting</h3>
-            <p>We need to join you in-game. Please make sure your Roblox privacy settings allow users to join your games.</p>
+            <h3>Join Server to Claim</h3>
+            <p>Please join our private server to claim your order, Please make sure your Roblox privacy settings allow you to join private servers.<br>If you can't join due to settings issue please add <a href="https://www.roblox.com/users/8710391353/profile" target="_blank">GagBestStore</a> as a friend</p>
             <img
               src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773731284267119/privacy_setting.png"
               alt="How to change privacy setting"
