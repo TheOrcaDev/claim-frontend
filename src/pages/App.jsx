@@ -129,7 +129,7 @@ export default function App() {
 
       <div className="main">
         <h1>Claim Your Order</h1>
-        <p>Order Number: <strong>{orderStatus?.shortId}</strong></p>
+        <p>Order Number: <strong>{orderStatus?.order_number}</strong></p>
         
 
         {step === 1 && (
