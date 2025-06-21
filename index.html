@@ -204,22 +204,40 @@
       return params.get('id');
     }
 
+    async function verifyShopifyOrder(orderId) {
+      // Example stub (must replace with real backend check later)
+      return orderId.length > 5; // Fake validation
+    }
+
     async function checkUsername() {
       const username = document.getElementById('username').value.trim();
       const errorMessage = document.getElementById('error-message');
+      const orderId = getOrderIdFromUrl();
+
+      if (!orderId) {
+        alert("Missing order ID in URL.");
+        return;
+      }
 
       if (!username) {
+        errorMessage.textContent = "Please enter a Roblox username.";
         errorMessage.style.display = 'block';
         return;
       } else {
         errorMessage.style.display = 'none';
       }
 
+      // Verify Shopify Order (placeholder, should call your backend)
+      const orderValid = await verifyShopifyOrder(orderId);
+      if (!orderValid) {
+        errorMessage.textContent = "Invalid or unverified order ID.";
+        errorMessage.style.display = 'block';
+        return;
+      }
+
       const res = await fetch(`https://users.roblox.com/v1/usernames/users`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ usernames: [username], excludeBannedUsers: false })
       });
 
@@ -227,8 +245,8 @@
 
       if (data.data && data.data.length > 0) {
         const user = data.data[0];
-        alert(`Verified: ${user.name} (ID: ${user.id})`);
-        // TODO: Move to step 2 visually
+        alert(`Verified: ${user.name} (ID: ${user.id}) - Order ID: ${orderId}`);
+        // TODO: Move to next step visually
       } else {
         errorMessage.textContent = "Username not found.";
         errorMessage.style.display = 'block';
