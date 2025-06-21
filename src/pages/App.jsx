@@ -93,7 +93,7 @@ export default function App() {
       <div className="sidebar">
         <img
           className="logo"
-          src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773276902457475/GAGBESTLOGO.png"
+          src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773276902457475/GAGBESTLOGO.png?ex=6857496f&is=6855f7ef&hm=ee6c3a5d59b430108c3f8bc4b32c9f88eeaee7b6fa89738371a973b44c090bb3&"
           alt="GAG.BEST Logo"
         />
         <div className="stepper">
@@ -151,7 +151,7 @@ export default function App() {
             <p>Can you confirm whether this is your account?</p>
             <div className="user-info user-preview">
               <img
-                src={`https://tr.rbxcdn.com/30DAY-AvatarHeadshot-${userData.id}-Png/352/352/Avatar/Png/noFilter`}
+                src={`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userData.id}&size=352x352&format=Png`}
                 alt="Avatar"
               />
               <div>
