@@ -161,7 +161,7 @@ export default function App() {
             </div>
             <div className="button-row">
               <button onClick={() => setStep(3)}>Yes! This is my account</button>
-              <button className="button-outline" onClick={() => { setUserData(null); setStep(1); }}>No! This is not mine</button>
+              <button className="button-outline2" onClick={() => { setUserData(null); setStep(1); }}>No! This is not mine</button>
             </div>
           </>
         )}
