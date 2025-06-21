@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
+import "../Claim.css"; // ✅ Import your CSS file here
 
 export default function App() {
   const [params] = useSearchParams();
@@ -15,8 +15,9 @@ export default function App() {
 
   useEffect(() => {
     if (orderId) {
-      axios.get(`https://gagbest.onrender.com/api/check-order?id=${orderId}`)
-        .then(res => {
+      axios
+        .get(`https://gagbest.onrender.com/api/check-order?id=${orderId}`)
+        .then((res) => {
           setOrderStatus(res.data.order);
           setStep(1);
         })
@@ -25,39 +26,53 @@ export default function App() {
   }, [orderId]);
 
   const handleUsername = () => {
-    if (!username) return;
-    axios.get(`https://gagbest.onrender.com/api/roblox-user?username=${username}`)
-      .then(res => {
+    setError("");
+    setUserData(null);
+    if (!username) {
+      setError("Please enter your Roblox username.");
+      return;
+    }
+
+    axios
+      .get(`https://gagbest.onrender.com/api/roblox-user?username=${username}`)
+      .then((res) => {
         setUserData(res.data);
         setStep(2);
       })
       .catch(() => setError("Roblox user not found."));
   };
 
-  if (error) return <div style={{ padding: 30, fontFamily: "sans-serif" }}>❌ {error}</div>;
-  if (!orderStatus) return <div style={{ padding: 30, fontFamily: "sans-serif" }}>🔄 Loading order...</div>;
+  if (error)
+    return <div className="main"><div className="error-message">❌ {error}</div></div>;
+  if (!orderStatus)
+    return <div className="main">🔄 Loading order...</div>;
 
   return (
-    <div style={{ fontFamily: "sans-serif", padding: 30 }}>
-      <h1>Claim Your Order</h1>
-      <p>Order ID: <strong>{orderId}</strong></p>
-
-      {step === 1 && (
-        <div>
-          <h3>Step 1: Enter your Roblox Username</h3>
-          <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-          <button onClick={handleUsername}>Continue</button>
+    <div className="container">
+      <div className="sidebar">
+        <img
+          className="logo"
+          src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773276902457475/GAGBESTLOGO.png"
+          alt="GAG.BEST Logo"
+        />
+        <div className="stepper">
+          <div className={`step ${step === 1 ? "" : "processing"}`}>
+            <div className="icon">✅</div>
+            <div className="content">
+              <p>Step 1</p>
+              <h1>Locate your Account</h1>
+              <span>{step === 1 ? "IN PROGRESS" : "COMPLETE"}</span>
+            </div>
+          </div>
+          <div className={`step ${step < 2 ? "processing" : ""}`}>
+            <div className="icon">👤</div>
+            <div className="content">
+              <p>Step 2</p>
+              <h1>Confirm your Account</h1>
+              <span>{step === 2 ? "IN PROGRESS" : "PROCESSING"}</span>
+            </div>
+          </div>
         </div>
-      )}
-
-      {step === 2 && userData && (
-        <div>
-          <h3>Confirm This is You:</h3>
-          <p><strong>{userData.displayName || userData.name}</strong> (ID: {userData.id})</p>
-          <button onClick={() => alert("Next step placeholder")}>Yes, that's me</button>
-          <button onClick={() => { setUserData(null); setStep(1); }}>Cancel</button>
-        </div>
-      )}
-    </div>
-  );
-}
+        <div className="helper">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/5968/5
