@@ -121,6 +121,12 @@
       margin-right: 10px;
       width: 20px;
     }
+    .error-message {
+      color: red;
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -187,15 +193,28 @@
       <h1>Hello!</h1>
       <p>Let's locate your account to initiate the claiming process.</p>
       <input id="username" type="text" placeholder="Your Roblox Username" />
-      <span style="display:block;font-size:12px;color:#9ca3af;margin-bottom:16px;">Please enter your Roblox Username</span>
+      <span class="error-message" id="error-message">Please enter a valid Roblox username</span>
       <button onclick="checkUsername()">Continue</button>
     </div>
   </div>
 
   <script>
+    function getOrderIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id');
+    }
+
     async function checkUsername() {
       const username = document.getElementById('username').value.trim();
-      if (!username) return alert("Please enter a username");
+      const errorMessage = document.getElementById('error-message');
+
+      if (!username) {
+        errorMessage.style.display = 'block';
+        return;
+      } else {
+        errorMessage.style.display = 'none';
+      }
+
       const res = await fetch(`https://users.roblox.com/v1/usernames/users`, {
         method: 'POST',
         headers: {
@@ -203,11 +222,23 @@
         },
         body: JSON.stringify({ usernames: [username], excludeBannedUsers: false })
       });
+
       const data = await res.json();
+
       if (data.data && data.data.length > 0) {
-        alert(`Username '${username}' exists with ID: ${data.data[0].id}`);
+        const user = data.data[0];
+        alert(`Verified: ${user.name} (ID: ${user.id})`);
+        // TODO: Move to step 2 visually
       } else {
-        alert("Username not found.");
+        errorMessage.textContent = "Username not found.";
+        errorMessage.style.display = 'block';
+      }
+    }
+
+    window.onload = () => {
+      const orderId = getOrderIdFromUrl();
+      if (!orderId) {
+        alert("Missing order ID in URL. Please use the correct claim link.");
       }
     }
   </script>
