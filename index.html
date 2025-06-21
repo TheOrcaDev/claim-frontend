@@ -1,39 +1,40 @@
-<script>
-  // Extend frontend behavior to support step 3 (Privacy Settings)
-  document.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("root");
+<body>Add commentMore actions
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    // Extend frontend behavior to support step 3 (Privacy Settings)
+    document.addEventListener("DOMContentLoaded", () => {
+      const root = document.getElementById("root");
 
-    const observer = new MutationObserver(() => {
-      const confirmBtn = Array.from(document.querySelectorAll("button")).find(
-        btn => btn.textContent.includes("Yes, that's me")
-      );
+      const observer = new MutationObserver(() => {
+        const confirmBtn = document.querySelector("button:contains('Yes, that's me')");
+        if (confirmBtn) {
+          confirmBtn.onclick = () => {
+            const step3Container = document.createElement("div");
+            step3Container.innerHTML = `
+              <h3>Change Your Privacy Setting</h3>
+              <p>We need to join you in-game. Please make sure your Roblox privacy settings allow users to join your games.</p>
+              <img
+                src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773731284267119/privacy_setting.png"
+                alt="How to change privacy setting"
+                style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);"
+              />
+              <div style="margin-top: 16px">
+                <button onclick="window.open('https://www.roblox.com/my/account#!/privacy/VisibilityAndPrivateServers/Visibility', '_blank')">
+                  Open Privacy Settings
+                </button>
+                <button style="margin-left: 12px" onclick="alert('Step 4 coming soon')">Next Step</button>
+              </div>
+            `;
 
-      if (confirmBtn && !confirmBtn.dataset._extended) {
-        confirmBtn.dataset._extended = "true"; // prevent double binding
-        confirmBtn.addEventListener("click", () => {
-          const step3Container = document.createElement("div");
-          step3Container.innerHTML = `
-            <h3>Change Your Privacy Setting</h3>
-            <p>We need to join you in-game. Please make sure your Roblox privacy settings allow users to join your games.</p>
-            <img
-              src="https://cdn.discordapp.com/attachments/1384676331660509337/1385773731284267119/privacy_setting.png"
-              alt="How to change privacy setting"
-              style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);"
-            />
-            <div style="margin-top: 16px">
-              <button onclick="window.open('https://www.roblox.com/my/account#!/privacy/VisibilityAndPrivateServers/Visibility', '_blank')">
-                Open Privacy Settings
-              </button>
-              <button style="margin-left: 12px" onclick="alert('Step 4 coming soon')">Next Step</button>
-            </div>
-          `;
+            root.innerHTML = "";
+            root.appendChild(step3Container);
+          };
+        }
+      });
 
-          root.innerHTML = "";
-          root.appendChild(step3Container);
-        });
-      }
+      observer.observe(root, { childList: true, subtree: true });
     });
-
-    observer.observe(root, { childList: true, subtree: true });
-  });
-</script>
+  </script>
+</body>
+</html>
