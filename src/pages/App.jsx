@@ -75,4 +75,44 @@ export default function App() {
         </div>
         <div className="helper">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/5968/5
+            src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png"
+            alt="Discord Icon"
+          />
+          <span>
+            Need help? <a href="#">View our Tutorial</a>
+          </span>
+        </div>
+      </div>
+
+      <div className="main">
+        <h1>Claim Your Order</h1>
+        <p>Order ID: <strong>{orderId}</strong></p>
+
+        {step === 1 && (
+          <>
+            <p>Let's locate your account to initiate the claiming process.</p>
+            <input
+              placeholder="Your Roblox Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <button onClick={handleUsername}>Continue</button>
+          </>
+        )}
+
+        {step === 2 && userData && (
+          <>
+            <h3>Confirm This is You:</h3>
+            <div className="user-info">
+              <strong>{userData.displayName || userData.name}</strong>
+              <br />
+              ID: {userData.id}
+            </div>
+            <button onClick={() => alert("Next step placeholder")}>Yes, that's me</button>
+            <button onClick={() => { setUserData(null); setStep(1); }}>Cancel</button>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
