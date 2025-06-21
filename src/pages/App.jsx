@@ -129,7 +129,8 @@ export default function App() {
 
       <div className="main">
         <h1>Claim Your Order</h1>
-        <p>Order ID: <strong>{orderId}</strong></p>
+        <p>Order Number: <strong>{orderStatus?.shortId || orderId.slice(-6)}</strong></p>
+        
 
         {step === 1 && (
           <>
