@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claim Order - GAG.BEST</title>
+  <title>Claim Your Order</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -12,170 +13,159 @@
       padding: 0;
       font-family: 'Roboto', sans-serif;
     }
-
     body {
-      background-color: #f4f6fa;
+      background: #f6f8fb;
       display: flex;
-      justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+      justify-content: center;
+      height: 100vh;
     }
-
     .container {
       display: flex;
-      flex-direction: column;
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       overflow: hidden;
-      width: 100%;
-      max-width: 900px;
-    }
-
-    .main {
-      display: flex;
-      flex-direction: row;
+      max-width: 1000px;
       width: 100%;
     }
-
     .sidebar {
-      background: #f8f9fb;
-      flex: 1;
-      padding: 30px;
-      border-right: 1px solid #e0e6ed;
+      background: #f9fafc;
+      padding: 32px;
+      width: 40%;
+    }
+    .sidebar img {
+      height: 36px;
+      margin-bottom: 32px;
+    }
+    .stepper .step {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
     }
-
-    .logo {
-      max-width: 140px;
-      margin-bottom: 40px;
+    .step .icon {
+      margin-right: 16px;
     }
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
+    .step p {
+      font-size: 14px;
+      color: #6b7280;
     }
-
-    .step h4 {
-      font-weight: 500;
-      color: #111;
-      margin-bottom: 4px;
+    .step h1 {
+      font-size: 16px;
+      color: #111827;
     }
-
-    .step small {
-      font-size: 13px;
-      color: #8996a5;
+    .step span {
+      font-size: 12px;
+      color: #10b981;
     }
-
-    .step.active h4 {
-      color: #111;
+    .step.processing h1, .step.processing span {
+      color: #9ca3af;
     }
-
-    .step.active small {
-      color: #3f9e4d;
-      font-weight: 500;
+    .step.processing .icon svg {
+      opacity: 0.5;
     }
-
-    .footer {
-      margin-top: 40px;
-      font-size: 13px;
-      color: #222;
-    }
-
-    .footer a {
-      color: #3f9e4d;
-      text-decoration: none;
-    }
-
     .content {
-      flex: 1.5;
-      padding: 40px;
+      flex: 1;
     }
-
-    .content h2 {
+    .main {
+      padding: 48px;
+      width: 60%;
+    }
+    .main h1 {
+      font-size: 24px;
+      font-weight: 700;
       margin-bottom: 12px;
     }
-
-    .content p {
-      margin-bottom: 20px;
-      color: #555;
+    .main p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 24px;
     }
-
-    .input-field {
+    .main input {
       width: 100%;
-      padding: 12px 16px;
-      font-size: 16px;
-      border: 1px solid #ccd3dc;
-      border-radius: 6px;
-      margin-bottom: 15px;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      margin-bottom: 12px;
     }
-
-    .button {
-      width: 100%;
-      background-color: #1c2431;
+    .main button {
+      background: #1f2937;
       color: white;
       border: none;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: 500;
-      border-radius: 6px;
+      width: 100%;
+      padding: 12px;
+      font-weight: 600;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .button:hover {
-      background-color: #131921;
-    }
-
-    @media (max-width: 768px) {
-      .main {
-        flex-direction: column;
-      }
-
-      .sidebar, .content {
-        padding: 24px;
-      }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="sidebar">
+      <img src="images/logo.png" alt="GAG.BEST Logo" />
+      <div class="stepper">
+        <div class="step">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#10b981">
+              <path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12Z"></path>
+              <path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"></path>
+            </svg>
+          </div>
+          <div class="content">
+            <p>Step 1</p>
+            <h1>Locate your Account</h1>
+            <span>IN PROGRESS</span>
+          </div>
+        </div>
+        <div class="step processing">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#d1d5db">
+              <path d="M24,12c0-1.696-.86-3.191-2.168-4.073..."></path>
+            </svg>
+          </div>
+          <div class="content">
+            <p>Step 2</p>
+            <h1>Confirm your Account</h1>
+            <span>PROCESSING</span>
+          </div>
+        </div>
+        <div class="step processing">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="22" height="22" fill="#d1d5db">
+              <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0..."></path>
+            </svg>
+          </div>
+          <div class="content">
+            <p>Step 3</p>
+            <h1>Change Privacy Setting</h1>
+            <span>PROCESSING</span>
+          </div>
+        </div>
+        <div class="step processing">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#d1d5db">
+              <path d="M7.835,16.17c-.23-.23-.446-.482-.641-.748..."></path>
+            </svg>
+          </div>
+          <div class="content">
+            <p>Step 4</p>
+            <h1>Join Game & Get Items</h1>
+            <span>PROCESSING</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 32px; display: flex; align-items: center;">
+        <img src="images/discord-icon.png" alt="Discord" width="20" style="margin-right: 10px;" />
+        <span>Need help? <a href="#" style="color: #10b981; text-decoration: underline;">View our Tutorial</a></span>
+      </div>
+    </div>
     <div class="main">
-      <div class="sidebar">
-        <img src="images/logo.png" alt="GAG.BEST Logo" class="logo" />
-        <div class="steps">
-          <div class="step active">
-            <h4>Step 1</h4>
-            <small>Locate your Account</small>
-          </div>
-          <div class="step">
-            <h4>Step 2</h4>
-            <small>Confirm your Account</small>
-          </div>
-          <div class="step">
-            <h4>Step 3</h4>
-            <small>Change Privacy Setting</small>
-          </div>
-          <div class="step">
-            <h4>Step 4</h4>
-            <small>Join Game & Get Items</small>
-          </div>
-        </div>
-        <div class="footer">
-          <img src="images/discord.svg" width="18" style="vertical-align: middle; margin-right: 6px;">
-          Need help? <a href="#">View our Tutorial</a>
-        </div>
-      </div>
-      <div class="content">
-        <h2>Hello!</h2>
-        <p>Let's locate your account to initiate the claiming process.</p>
-        <input type="text" class="input-field" placeholder="Your Roblox Username" />
-        <button class="button">Continue</button>
-      </div>
+      <h1>Hello!</h1>
+      <p>Let's locate your account to initiate the claiming process.</p>
+      <input type="text" placeholder="Your Roblox Username" />
+      <span style="display:block;font-size:12px;color:#9ca3af;margin-bottom:16px;">Please enter your Roblox Username</span>
+      <button>Continue</button>
     </div>
   </div>
 </body>
