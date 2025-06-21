@@ -90,7 +90,29 @@ export default function App() {
           alt="GAG.BEST Logo"
         />
         <div className="stepper">
-          {/* Steps rendering is skipped for brevity */}
+          {[1, 2, 3, 4].map((s, i) => (
+            <div key={s} className={`step ${step < s ? "processing" : step === s ? "active" : "complete"}`}>
+              <div className="icon" />
+              <div className="content">
+                <p>Step {s}</p>
+                <h1>
+                  {[
+                    "Locate your Account",
+                    "Confirm your Account",
+                    "Change Privacy Setting",
+                    "Join Game & Get Items",
+                  ][i]}
+                </h1>
+                <span>
+                  {step === s
+                    ? "IN PROGRESS"
+                    : step > s
+                    ? "COMPLETE"
+                    : "PROCESSING"}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
         <div className="helper">
           <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord Icon" />
@@ -119,7 +141,7 @@ export default function App() {
           <>
             <h3>Hold On!</h3>
             <p>Can you confirm whether this is your account?</p>
-            <div className="user-info">
+            <div className="user-info user-preview">
               <img
                 src={`https://www.roblox.com/headshot-thumbnail/image?userId=${userData.id}&width=150&height=150&format=png`}
                 alt="Avatar"
