@@ -21,7 +21,7 @@ export default function App() {
       <div className="main">
         <h1>Locate Your Order</h1>
         <input
-          placeholder="Your Email"
+          placeholder="Your Email123"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -129,7 +129,7 @@ export default function App() {
 
       <div className="main">
         <h1>Claim Your Order</h1>
-        <p>Order Number: <strong>{orderStatus?.shortId || orderId.slice(-6)}</strong></p>
+        <p>Order Number: <strong>{orderStatus?.shortId}</strong></p>
         
 
         {step === 1 && (
